@@ -103,8 +103,8 @@ body {
 	
 	background-color: #FFFF;
 	background-image: -webkit-linear-gradient(bottom, #242400 0%, #242400 100%); /*muda a cor da base*/
-	background-image: -moz-linear-gradient(bottom, #FFF 0%, #424F71 100%);
-	background-image: -o-linear-gradient(bottom, #FFF 0%, #424F71 100%);
+	background-image: -moz-linear-gradient(bottom, #DDD 0%, #424F71 100%);
+	background-image: -o-linear-gradient(bottom, #FFFF 0%, #424F71 100%);
 	background-image: -ms-linear-gradient(bottom, #323B55 0%, #424F71 100%);
 	background-image: linear-gradient(bottom, #323B55 0%, #424F71 100%);
 }

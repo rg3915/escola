@@ -1,16 +1,19 @@
-<h1>Home</h1>
-
-<br />
-Projeto escolar é boletins
-<br />
-
-{% if user.is_authenticated %}
-
-{% endif %}
-
-<a href="/professores/">Login Professores</a>
-<br />
-<a href="/alunos/">Login Alunos</a>
-
-
-
+<!DOCTYPE html>
+{% load static %}
+<head>
+	<meta charset="utf-8">
+	<title>Slick Login</title>
+	<meta name="description" content="slick Login">
+	<script src="{% static 'js/placeholder.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+	<center><h1>Login Professor</h1></center>
+	<form id="slick-login" action="/validar/" method="POST">
+	{% csrf_token %}
+	<label for="username">Username</label><input type="text" name="login" class="placeholder" placeholder="Usuario">
+	<label for="password">Password</label><input type="password" name="senha" class="placeholder" placeholder="Senha">
+	<input type="submit" value="Entrar">
+</form>
+</body>
+</html>

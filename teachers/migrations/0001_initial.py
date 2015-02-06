@@ -7,9 +7,24 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('students', '0008_auto_20150204_2227'),
     ]
 
     operations = [
+        migrations.CreateModel(
+            name='Anotations',
+            fields=[
+                ('id_Ano', models.AutoField(serialize=False, primary_key=True)),
+                ('not1', models.IntegerField(max_length=10, verbose_name=b'Nota 1')),
+                ('not2', models.IntegerField(max_length=10, verbose_name=b'Nota 2')),
+                ('not3', models.IntegerField(max_length=10, verbose_name=b'Nota 3')),
+                ('not4', models.IntegerField(max_length=10, verbose_name=b'Nota 4')),
+                ('student', models.ManyToManyField(related_name='aluno', to='students.Alunos')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
         migrations.CreateModel(
             name='Createteacher',
             fields=[
@@ -33,13 +48,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Materias',
             fields=[
-                ('id_prof', models.AutoField(serialize=False, primary_key=True)),
+                ('id_mat', models.AutoField(serialize=False, primary_key=True)),
                 ('materia1', models.CharField(max_length=40, verbose_name='Materia 1', choices=[['Portugu\xeas', b'Portugu\xc3\xaas'], ['Matematica', b'Matematica'], ['Geografia', b'Geografia']])),
                 ('materia2', models.CharField(blank=True, max_length=40, verbose_name=b'Materia 2', choices=[['Portugu\xeas', b'Portugu\xc3\xaas'], ['Matematica', b'Matematica'], ['Geografia', b'Geografia']])),
                 ('materia3', models.CharField(blank=True, max_length=40, verbose_name=b'Materia 3', choices=[['Portugu\xeas', b'Portugu\xc3\xaas'], ['Matematica', b'Matematica'], ['Geografia', b'Geografia']])),
                 ('materia4', models.CharField(blank=True, max_length=40, verbose_name=b'Materia 4', choices=[['Portugu\xeas', b'Portugu\xc3\xaas'], ['Matematica', b'Matematica'], ['Geografia', b'Geografia']])),
                 ('materia5', models.CharField(blank=True, max_length=40, verbose_name=b'Materia 5', choices=[['Portugu\xeas', b'Portugu\xc3\xaas'], ['Matematica', b'Matematica'], ['Geografia', b'Geografia']])),
-                ('prof', models.ForeignKey(to='teachers.Createteacher', max_length=200)),
+                ('prof', models.ForeignKey(verbose_name=b'Professor', to='teachers.Createteacher', max_length=200)),
             ],
             options={
                 'verbose_name': 'Materia',

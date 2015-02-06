@@ -1,10 +1,10 @@
 # coding: utf-8
 from django.db import models
 from dados.list import *
-from students.models import Alunos
+#from students.models import Alunos
 
 
-
+"""
 class Createteacher(models.Model):
 	id_teacher = models.AutoField(primary_key=True)
 	teacher = models.CharField(verbose_name = 'Professor', max_length=200, blank=False)
@@ -48,3 +48,4 @@ class Anotations(models.Model):
 	not2 = models.IntegerField(verbose_name='Nota 2', max_length=10, blank=False)
 	not3 = models.IntegerField(verbose_name='Nota 3', max_length=10, blank=False)
 	not4 = models.IntegerField(verbose_name='Nota 4', max_length=10, blank=False)
+"""

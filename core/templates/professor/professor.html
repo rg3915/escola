@@ -6,38 +6,39 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/profstyle.css' %}"/>
 </head>
 	<body>
-		<div align="center"><h1>Painel de controle professor</h1></div>
-		Bem vindo professor(a): {{ user.username }}
-		<br />
-		<a href="/logoff/">Desconectar</a>
-		<br />
-		<br />
-		<table style="width:100%">
-			<thead>
-				<tr>
-				    <th>Nome</th>
-				    <th>Nota 1</th>
-				    <th>Nota 2</th>
-				    <th>Nota 3</th>  
-				    <th>Serie</th>   
-				</tr>
-			</thead>
-			
-			{% for lista in lista %}
-				<tr>
-					<td><div align="center">{% for name in lista.student.all %}{{ name }}{% endfor %}</div></td>
-					<td><div align="center">{{ lista.not1 }}</div></td>	
-			  		<td><div align="center">{{ lista.not2 }}</div></td>
-					<td><div align="center">{{ lista.not3 }}</div></td>
-					<td><div align="center">{{ lista.not4 }}</div></td>		
-			  	</tr>
-			{% endfor %}
+		{% if user.is_authenticated %}
+			<div align="center"><h1>Painel de controle professor</h1></div>
+			Bem vindo professor(a): {{ user.username }}
+			<br />
+			<a href="/logoff/">Desconectar</a>
+			<br />
+			<br />
+			<table style="width:100%">
+				<thead>
+					<tr>
+					    <th>Nome</th>
+					    <th>Turno</th>
+					    <th>Serie</th>
+					    <th>Nota</th>  
+					    <th>Falta</th>   
+					</tr>
+				</thead>
+				
+				{% for lista in lista %}
+					<tr>
+						<td><div align="center">{{ lista.aluno }}</div></td>
+						<td><div align="center">{{ lista.turno }}</div></td>
+						<td><div align="center">{{ lista.serie }}</div></td>
+	
+				  	</tr>
+				{% endfor %}
 
-		</table>
-		<br />
-		<br />
-			Total de alunos: {{ contar }}
-		<br />
-		<br />		
+			</table>
+			<br />
+			<br />
+				Total de alunos: {{ contar }}
+			<br />
+			<br />
+		{% endif %}		
 	</body>
 </html>

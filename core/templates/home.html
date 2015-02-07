@@ -2,18 +2,19 @@
 {% load static %}
 <head>
 	<meta charset="utf-8">
-	<title>Escolar Login</title>
+	<title>{% block titulo %}Escolar Login{% endblock %}</title>
 	<meta name="description" content="Login">
 	<script src="{% static 'js/placeholder.js' %}"></script>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 </head>
 <body>
+{% block content %}{% endblock %}
 	<center><h1>Login Professor</h1></center>
 	<form id="login" action="/validar/" method="POST">
-	{% csrf_token %}
-	<label for="username">Username</label><input type="text" name="user" class="placeholder" placeholder="Usuario">
-	<label for="password">Password</label><input type="password" name="password" class="placeholder" placeholder="Senha">
-	<input type="submit" value="Entrar">
-</form>
+		{% csrf_token %}
+		<label for="username">Username</label><input type="text" name="user" class="placeholder" placeholder="Usuario">
+		<label for="password">Password</label><input type="password" name="password" class="placeholder" placeholder="Senha">
+		<input type="submit" value="Entrar">	
+	</form>
 </body>
 </html>

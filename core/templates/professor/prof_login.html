@@ -1,7 +1,13 @@
-<h1>LOGIN</h1>
+{% extends 'home.html' %}
+{% block titulo %}Escolar Login{% endblock %}
 
-<form action="/validar/" method="POST">
-	{% csrf_token %}
-	{{ form }}
-	<input type="submit" value="Logar" />
-</form>
+{% block content %}
+	<form id="login" action="/validar/" method="POST">
+		{% csrf_token %}
+		<label for="username">Username</label><input type="text" name="user" class="placeholder" placeholder="Usuario">
+		<label for="password">Password</label><input type="password" name="password" class="placeholder" placeholder="Senha">
+		<input type="submit" value="Entrar">
+	</form>
+{% endblock %}
+</body>
+</html>

@@ -16,7 +16,7 @@ class UserModel(models.Model):
 		return self.use
 
 #===================================================================#
-#                         Create user teacher                       #
+#                         Create teacher                            #
 #===================================================================#
 class CreateUserTeacher(models.Model):
 	id_teacher = models.AutoField(primary_key=True)
@@ -37,6 +37,8 @@ class Materia(models.Model):
 	aluno = models.ForeignKey(Createstudent)
 	turno = models.CharField(verbose_name=u'Turno',  max_length=20)
 	serie = models.CharField(verbose_name=u'Serie', max_length=30)
+	nota = models.DecimalField(verbose_name='Nota', max_digits=10, decimal_places=2)
+	falta = models.IntegerField(verbose_name='Falta', blank=True, null=True)
 	materia = models.CharField(verbose_name='Materia', max_length=20, choices= MATERIA_CHOICES)
 
 	def __unicode__(self):

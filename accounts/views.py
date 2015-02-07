@@ -56,5 +56,6 @@ def logoff(request):
 @login_required()
 def professor(request):
     return render(request,'professor/professor.html',
-     {'lista': Materia.objects.filter(id_professor=request.user)}) #, 'contar': Createstudent.objects.count()})
+     {'lista': Materia.objects.filter(id_professor=request.user)}) 
+     #, 'contar': Createstudent.objects.count()})
 

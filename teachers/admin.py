@@ -1,5 +1,5 @@
 from django.contrib import admin
-from accounts.models import CreateUserTeacher, Materia
+from accounts.models import CreateUserTeacher, CampoMateria, Materia, CampoProf
 
 
 
@@ -11,7 +11,9 @@ from accounts.models import CreateUserTeacher, Materia
 
 
 admin.site.register(CreateUserTeacher)
+admin.site.register(CampoMateria)
 admin.site.register(Materia)
+admin.site.register(CampoProf)
 
 
 

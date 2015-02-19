@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserModel
+from .models import UserModel, CampoMateria
 
 
 
@@ -20,4 +20,10 @@ class LoginForm(forms.ModelForm):
 		widgets = {
         	'password': forms.PasswordInput(),
     	}
+
+class CadAlunoForm(forms.Form):
+
+	class Meta:
+		model = CampoMateria
+		fields = ['aluno', 'turno', 'serie', 'nota', 'falta']
 

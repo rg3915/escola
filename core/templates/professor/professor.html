@@ -4,6 +4,32 @@
 <head>
 	<title>Professores</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/profstyle.css' %}"/>
+	<style type="text/css">
+	  #popup{
+	  position: fixed;
+	  top: 50%;
+	  left: 50%;
+	  margin: -75px 0 0 -150px;
+	  width: 300px;
+	  height: 150px;
+	  padding: 20px;
+	  border: solid 1px #331;
+	  background: #FFFFFF;
+	  display: none;
+	  }
+  </style>
+
+  <script type="text/javascript">
+
+	   function fechar(){
+	     document.getElementById('popup').style.display = 'none';
+	   }
+
+	   function abrir(){
+	     document.getElementById('popup').style.display = 'block';
+	   }
+
+  </script>
 </head>
 	<body>
 		{% if user.is_authenticated %}
@@ -13,6 +39,15 @@
 			<a href="/logoff/">Desconectar</a>
 			<br />
 			<br />
+			<br />
+			<div align="center">
+				<form name="Menu">
+					<select id="materia_box" name="pages" size="1" onChange="vai(this);">
+						<option>Materia</option>
+					</select>
+				</form>
+			</div>
+			<br />
 			<table style="width:100%">
 				<thead>
 					<tr>
@@ -20,7 +55,8 @@
 					    <th>Turno</th>
 					    <th>Serie</th>
 					    <th>Nota</th>  
-					    <th>Falta</th>   
+					    <th>Falta</th>
+					    <th>Materia</th>
 					</tr>
 				</thead>
 				
@@ -31,13 +67,30 @@
 						<td><div align="center">{{ lista.serie }}</div></td>
 						<td><div align="center">{{ lista.nota }}</div></td>
 						<td><div align="center">{{ lista.falta }}</div></td>
+						<td><div align="center">{{ lista.materia }}</div></td>
 				  	</tr>
 				{% endfor %}
+
 
 			</table>
 			<br />
 			<br />
-				Total de alunos: {{ contar }}
+			<select id="materia_box">
+			<option>"materia_box"</option>
+			</select>
+			<br />
+			<br />
+			<div align="center">
+				<p><a href="javascript: abrir();">Adicionar Aluno</a>
+			</div>
+			<br />
+			<br />
+			<div id="popup"> 
+				<form method="POST">
+		    	</form>
+				<p><small class="fechar"><a href="javascript: fechar();">Cancelar</a></small></p>
+				<input class="submitform" type="submit" name="submitform" value="Cadastrar" />
+			</div>
 			<br />
 			<br />
 		{% endif %}		

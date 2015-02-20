@@ -1,3 +1,6 @@
 Django==1.7.1
 argparse==1.2.1
+django-easyfilters==0.5
+python-dateutil==2.4.0
+six==1.9.0
 wsgiref==0.1.2

@@ -41,10 +41,18 @@
 			<br />
 			<br />
 			<div align="center">
-				<form name="Menu">
-					<select id="materia_box" name="pages" size="1" onChange="vai(this);">
-						<option>Materia</option>
+				<form name="Menu" action="." method="get">
+					<!-- <select id="materia_select" name="pages" size="1" onChange="vai(this);"> -->
+					<!-- <select id="materia_select">
+						{{ object.materia }}
+					</select> -->
+					<select id="materia_select">
+						{% for m in materia %}
+						    <option value="{{ m.id }}" {% if m.selected %} selected="selected"{% endif %}>{{ m.materia }}</option>
+						{% endfor %}
 					</select>
+					<input id="turno_search_box" type="text" value="vespertino" placeholder="Procurar por turno..."></input>
+					<button type="submit" >OK</button>
 				</form>
 			</div>
 			<br />
@@ -59,15 +67,17 @@
 					    <th>Materia</th>
 					</tr>
 				</thead>
+
+				{{ studentsfilter }}
 				
-				{% for lista in lista %}
+				{% for student in students %}
 					<tr>
-						<td><div align="center">{{ lista.aluno }}</div></td>
-						<td><div align="center">{{ lista.turno }}</div></td>
-						<td><div align="center">{{ lista.serie }}</div></td>
-						<td><div align="center">{{ lista.nota }}</div></td>
-						<td><div align="center">{{ lista.falta }}</div></td>
-						<td><div align="center">{{ lista.materia }}</div></td>
+						<td><div align="center">{{ student.aluno }}</div></td>
+						<td><div align="center">{{ student.turno }}</div></td>
+						<td><div align="center">{{ student.serie }}</div></td>
+						<td><div align="center">{{ student.nota }}</div></td>
+						<td><div align="center">{{ student.falta }}</div></td>
+						<td><div align="center">{{ student.materia }}</div></td>
 				  	</tr>
 				{% endfor %}
 
@@ -75,9 +85,9 @@
 			</table>
 			<br />
 			<br />
-			<select id="materia_box">
-			<option>"materia_box"</option>
-			</select>
+			<!-- <select id="materia_select">
+			<option>"materia_select"</option>
+			</select> -->
 			<br />
 			<br />
 			<div align="center">
